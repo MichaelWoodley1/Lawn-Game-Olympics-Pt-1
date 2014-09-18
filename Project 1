@@ -1,0 +1,153 @@
+package com.company;
+
+import java.io.*; //FileReader and the BufferedReader
+import java.util.ArrayList;
+
+public class Main {
+
+    static String[] events;
+    static String[][] olympians;
+
+    public static void main(String[] args) {
+
+        createEvents();
+        createOlympians();
+
+        //Display Application Name
+        System.out.println("Lawn Game Olympics");
+
+        //set buffer to keyboard
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        //Reads user input and stores it as newString
+        String newString ="";
+        try {
+            newString = br.readLine();
+        } catch (IOException ioe) {
+            System.out.println("Not a string");
+        }
+
+        newString = newString.toLowerCase();
+
+        if (newString.equals("events") || newString.equals("e")) {
+            listEvents();
+        } else if (newString.equals("olympians") || newString.equals("o")) {
+            listOlympians();
+        }  else if (newString.equals("help") || newString.equals("h")) {
+                listHelp();
+        } else {
+            System.out.println("invalid input");
+        }
+
+    }//end main method
+
+    //initializes the list of events for the day
+    public static void createEvents() {
+        events = new String[6];
+        events[0] = "Washoo";
+        events[1] = "CamJam";
+        events[2] = "Horsehoes";
+        events[3] = "Cornhole";
+        events[4] = "Ladderball";
+        events[5] = "Stickgame";
+    }//end method
+
+    //Display the list of Olympians for the day
+    public static void listEvents() {
+
+        for (int i = 0; i < events.length; i++) {
+            System.out.println(events[i]);
+        }
+    }//end method
+
+    public static void createOlympians() {
+        olympians = new String[3][16];
+        olympians[0][0] = "Mike";
+        olympians[1][0] = "M";
+        olympians[2][0] = "20";
+        //-----------------------------------------
+        olympians[0][1] = "Katie";
+        olympians[1][1] = "F";
+        olympians[2][1] = "18";
+        //-----------------------------------------
+        olympians[0][2] = "Charlie";
+        olympians[1][2] = "M";
+        olympians[2][2] = "19";
+        //-----------------------------------------
+        olympians[0][3] = "Rachel";
+        olympians[1][3] = "F";
+        olympians[2][3] = "21";
+        //-----------------------------------------
+        olympians[0][4] = "Joe";
+        olympians[1][4] = "M";
+        olympians[2][4] = "39";
+        //-----------------------------------------
+        olympians[0][5] = "Regina";
+        olympians[1][5] = "F";
+        olympians[2][5] = "51";
+        //-----------------------------------------
+        olympians[0][6] = "Tommy";
+        olympians[1][6] = "M";
+        olympians[2][6] = "25";
+        //-----------------------------------------
+        olympians[0][7] = "Sarah";
+        olympians[1][7] = "F";
+        olympians[2][7] = "9";
+        //-----------------------------------------
+        olympians[0][8] = "Ryan";
+        olympians[1][8] = "M";
+        olympians[2][8] = "21";
+        //-----------------------------------------
+        olympians[0][9] = "Casey";
+        olympians[1][9] = "F";
+        olympians[2][9] = "18";
+        //-----------------------------------------
+        olympians[0][10] = "Billy";
+        olympians[1][10] = "F";
+        olympians[2][10] = "26";
+        //-----------------------------------------
+        olympians[0][11] = "Noah";
+        olympians[1][11] = "M";
+        olympians[2][11] = "35";
+        //-----------------------------------------
+        olympians[0][12] = "Sebastian";
+        olympians[1][12] = "M";
+        olympians[2][12] = "18";
+        //-----------------------------------------
+        olympians[0][13] = "Victoria";
+        olympians[1][13] = "F";
+        olympians[2][13] = "22";
+        //-----------------------------------------
+        olympians[0][14] = "Thomas";
+        olympians[1][14] = "M";
+        olympians[2][14] = "17";
+        //-----------------------------------------
+        olympians[0][15] = "Matthew";
+        olympians[1][15] = "M";
+        olympians[2][15] = "19";
+    }//end method
+
+    //How to display the olympians in the array
+    public static void listOlympians() {
+
+        for (int col = 0; col < olympians[0].length; col++) {
+            //
+            for (int row = 0; row < 3; row++) {
+                System.out.print(olympians[row][col]);
+                System.out.print(", ");
+            }
+            System.out.println();
+        }
+    }//end method
+
+    //Display the list of Help options
+    public static void listHelp() {
+        System.out.println("events or e : list the day's events");
+        System.out.println("olympians or e : list the day's olympians");
+        System.out.println("help or h : display the acceptable commands as well as a description of what each command does ");
+
+    }//end method
+
+
+}
+
